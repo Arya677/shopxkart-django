@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="max-age=604800" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>ShopXkart | One of the Biggest Online Shopping Platform</title>
+
+<link href="{% static "images/favicon.ico" %}" rel="shortcut icon" type="image/x-icon">
+
+<!-- jQuery -->
+<script src="{% static 'js/jquery-2.0.0.min.js' %}" type="text/javascript"></script>
+
+<!-- Bootstrap4 files-->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<script src="{% static "js/bootstrap.bundle.min.js" %}" type="text/javascript"></script>
+<link href="{% static "css/bootstrap.css" %}" rel="stylesheet" type="text/css"/>
+
+<!-- Font awesome 5 -->
+<link href="{% static "fonts/fontawesome/css/all.min.css" %}" type="text/css" rel="stylesheet">
+
+<!-- custom style -->
+<link href="{% static "css/ui.css" %}" rel="stylesheet" type="text/css"/>
+<link href="{% static "css/responsive.css" %}" rel="stylesheet" media="only screen and (max-width: 1200px)" />
+
+<!-- custom javascript -->
+<script src="{% static "js/script.js" %}" type="text/javascript"></script>
+
+<script type="text/javascript">
+/// some script
+
+// jquery ready start
+$(document).ready(function() {
+	// jQuery code
+
+}); 
+// jquery end
+</script>
+
+</head>
+<body>
+
+	<header class="section-header">
+		<section class="header-main border-bottom bg-dark">
+		  <div class="container">
+			<div class="row align-items-center">
+			  <!-- Brand and Logo -->
+			  <div class="col-lg-2 col-md-3 col-6">
+				<a href="/" class="brand-wrap">
+				  <img class="logo" src="{% static "images/logo.png" %}" alt="Logo">
+				</a>
+			  </div>
+			  
+			  <!-- Categories Dropdown -->
+			  <div class="col-lg col-md col-6 d-flex justify-content-end">
+				<div class="category-wrap dropdown d-inline-block float-right">
+					<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> 
+						<i class="fa fa-bars"></i> All category 
+					</button>
+					<div class="dropdown-menu">
+						{% for category in links %}	
+							<a class="dropdown-item" href="{{category.get_url}}">{{category.category_name}}</a>
+						{% endfor %}
+					</div>
+				</div> 
+			  </div>
+		
+			  <!-- Store Button -->
+			  <div class="col-auto">
+				<a href="{% url "store" %}" class="btn btn-outline-primary">Store</a>
+			  </div>
+	  
+			  <!-- Search Form -->
+			  <div class="col-lg-3 col-md-6 col-sm-12">
+				<form action="#" class="search">
+				  <div class="input-group w-100">
+					<input type="text" class="form-control" style="width: 60%;" placeholder="Search">
+					<div class="input-group-append">
+					  <button class="btn btn-primary" type="submit">
+						<i class="fa fa-search"></i>
+					  </button>
+					</div>
+				  </div>
+				</form>
+			  </div>
+	  
+			  <!-- User and Cart Widgets -->
+			  <div class="col-lg-3 col-md-6 col-sm-12">
+				<div class="d-flex justify-content-end align-items-center">
+				  <div class="widget-header text-white me-3">
+					<small class="title text-muted">Welcome guest!</small>
+					<div>
+						<a href="{% url "signin" %}" class="text-white">Sign in</a> <span class="dark-transp"> | </span>
+						<a href="{% url "register" %}" class="text-white">Register</a>
+					</div>
+				  </div>
+	  
+				  <a href="#" class="widget-header">
+					<div class="icon icon-sm rounded-circle border">
+					  <i class="fa fa-shopping-cart"></i>
+					</div>
+					<span class="badge badge-pill badge-danger notify">0</span>
+				  </a>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</section>
+	</header>
+
+{% block main-content %}{% endblock main-content %}
+{% block register %}{% endblock register %}
+{% block signin %}{% endblock signin %}
+{% block store %}{% endblock store %} 
+{% block product-detail %}{% endblock product-detail %}
+{% comment %} 
+{% block dashboard %}{% endblock dashboard %}
+{% block cart %}{% endblock cart %}
+{% block order-complete %}{% endblock order-complete %}
+{% block place-order %}{% endblock place-order %}
+
+
+{% block search-result %}{% endblock search-result %}
+
+ {% endcomment %}
+
+<!-- ========================= FOOTER ========================= -->
+<footer class="footer bg-dark text-white">
+  <div class="container py-4">
+    <div class="row">
+      <!-- Column 1: Company Info -->
+      <div class="col-md-4 mb-3">
+        <h5>Shop X Kart</h5>
+        <p>Shop X Kart is your go-to online store for a wide range of quality products, from tech gadgets to fashion and everyday essentials. We strive to offer a smooth shopping experience with fast shipping and great customer service. At Shop X Kart, we're dedicated to bringing you top products at great prices, all in one convenient place.
+			
+			Thank you for choosing Shop X Kart. We look forward to serving you!</p>
+      </div>
+      
+      <!-- Column 2: Links -->
+      <div class="col-md-4 mb-3">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+		  <li><a href="#" class="text-white">Home</a></li>
+		  <li><a href="#" class="text-white">Special Offers</a></li>
+		  <li><a href="#" class="text-white">Contact Us</a></li>
+          <li><a href="#" class="text-white">About Us</a></li>
+          <li><a href="#" class="text-white">Services</a></li>
+          <li><a href="#" class="text-white">Privacy Policy</a></li>
+          <li><a href="#" class="text-white">Terms of Use</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Contact Info -->
+      <div class="col-md-4 mb-3">
+        <h5>Contact Us</h5>
+        <p>info@company.com</p>
+        <p>+123-456-7890</p>
+        <p>Street name 123, Avenue ABC, City, Country</p>
+      </div>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="row">
+      <div class="col-12 text-center">
+        <p class="mb-0">&copy; 2025 Company Name. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- ========================= FOOTER END // ========================= -->
+
+ <!-- Add Bootstrap's CDN (to make this responsive) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
