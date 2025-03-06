@@ -8,12 +8,3 @@ def index(request):
         'products': products,
     }
     return render(request,'index.html',context)
-
-def register(request):
-    return render(request,'register.html')
-
-def signin(request):
-    return render(request,'login.html')
-
-def product_detail(request):        
-    return render(request, 'product_detail.html')

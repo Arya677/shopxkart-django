@@ -18,7 +18,7 @@
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <script src="{% static "js/bootstrap.bundle.min.js" %}" type="text/javascript"></script>
 <link href="{% static "css/bootstrap.css" %}" rel="stylesheet" type="text/css"/>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 <!-- Font awesome 5 -->
 <link href="{% static "fonts/fontawesome/css/all.min.css" %}" type="text/css" rel="stylesheet">
 
@@ -77,37 +77,47 @@ $(document).ready(function() {
 			  <div class="col-lg-3 col-md-6 col-sm-12">
 
 				<form action="{% url "search" %}" class="search" method="GET">
-				  <div class="input-group w-100">
-					<input type="text" class="form-control" style="width: 60%;" placeholder="Search" name="keyword">
-					<div class="input-group-append">
-					  <button class="btn btn-primary" type="submit">
-						<i class="fa fa-search"></i>
-					  </button>
-					</div>
-				  </div>
+				  	<div class="input-group w-100">
+						<input type="text" class="form-control" style="width: 60%;" placeholder="Search" name="keyword">
+						<div class="input-group-append">
+					  	<button class="btn btn-primary" type="submit">
+							<i class="fa fa-search"></i>
+					 	</button>
+						</div>
+				  	</div>
 				</form>
 
 			  </div>
 	  
 			  <!-- User and Cart Widgets -->
-			  <div class="col-lg-3 col-md-6 col-sm-12">
-				<div class="d-flex justify-content-end align-items-center">
-				  <div class="widget-header text-white me-3">
-					<small class="title text-muted">Welcome guest!</small>
-					<div>
-						<a href="{% url "signin" %}" class="text-white">Sign in</a> <span class="dark-transp"> | </span>
-						<a href="{% url "register" %}" class="text-white">Register</a>
+			  	<div class="col-lg-3 col-md-6 col-sm-12">
+					<div class="d-flex justify-content-end align-items-center">
+						{% if user.id is None %}
+						<div class="widget-header text-white me-3">
+							<small class="title text-muted">Welcome guest!</small>
+							<div>
+								  <a href="{% url "login" %}" class="text-white">Sign in</a> <span class="dark-transp"> | </span>
+								  <a href="{% url "register" %}" class="text-white">Register</a>
+							</div>
+						</div>	
+						{% else %}
+						<div class="widget-header text-white me-3">
+							<small class="title text-muted">Welcome {{ user.first_name }} {{ user.last_name }}</small>
+							<div>
+							    <a href="{% url "dashboard" %}" class="text-white">Dashboard</a> <span class="dark-transp"> | </span>
+						  		<a href="{% url "logout" %}" class="text-white">Logout</a>
+							</div>
+				  		</div>
+					    {% endif %}
+				  
+				  	 	<a href="{% url "cart" %}" class="widget-header pl-3 ml-3 border-left">
+						<div class="icon icon-sm rounded-circle border">
+					  		<i class="fa fa-shopping-cart"></i>
+					    </div>
+						<span class="badge badge-pill badge-danger notify">{{ cart_count }}</span>
+				  		</a>
 					</div>
-				  </div>
-	  
-				  <a href="{% url "cart" %}" class="widget-header pl-3 ml-3 border-left">
-					<div class="icon icon-sm rounded-circle border">
-					  <i class="fa fa-shopping-cart"></i>
-					</div>
-					<span class="badge badge-pill badge-danger notify">{{ cart_count }}</span>
-				  </a>
 				</div>
-			  </div>
 			</div>
 		  </div>
 		</section>
@@ -119,9 +129,12 @@ $(document).ready(function() {
 {% block store %}{% endblock store %} 
 {% block product-detail %}{% endblock product-detail %}
 {% block cart %}{% endblock cart %}
+{% block dashboard %}{% endblock dashboard %}
+{% block forgotPassword %}{% endblock forgotPassword %}
+{% block checkout %}{% endblock checkout %}
 
 {% comment %} 
-{% block dashboard %}{% endblock dashboard %}
+
 
 {% block order-complete %}{% endblock order-complete %}
 {% block place-order %}{% endblock place-order %}
@@ -129,7 +142,8 @@ $(document).ready(function() {
 
 {% block search-result %}{% endblock search-result %}
 
- {% endcomment %}
+{% endcomment %}
+
 
 <!-- ========================= FOOTER ========================= -->
 <footer class="footer bg-dark text-white">

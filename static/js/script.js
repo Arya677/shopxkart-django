@@ -51,10 +51,28 @@ $(document).ready(function() {
 		$('[data-toggle="tooltip"]').tooltip()
 	} // end if
 
-
-
-
     
 }); 
 // jquery end
+
+setTimeout(function() {
+ $('#message').fadeout('slow')
+  }, 3000);
+
+function togglePassword(field) {
+    const passwordField = document.querySelector(`#id_${field}`);
+    const button = passwordField.nextElementSibling;
+    const eyeIcon = button.querySelector('i');
+
+    if (passwordField.type === 'password') {
+      passwordField.type = 'text';
+       eyeIcon.classList.remove('fa-eye');
+      eyeIcon.classList.add('fa-eye-slash');
+      
+    } else {
+      passwordField.type = 'password';
+      eyeIcon.classList.remove('fa-eye-slash');
+      eyeIcon.classList.add('fa-eye');
+    }
+  };
 
