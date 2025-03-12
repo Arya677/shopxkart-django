@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 from django.contrib.messages import constants as messages
 
@@ -22,6 +23,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -30,6 +32,7 @@ INSTALLED_APPS = [
     'accounts',
     'store',
     'carts',
+    'orders',
 
 ]
 
@@ -134,11 +137,11 @@ MESSAGE_TAGS = {
     messages.ERROR: "danger",
 }
 
-
 #SMTP configuration
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587
-# EMAIL_HOST_USER = 'arpitaryampct21@gmail.com'
-# EMAIL_HOST_PASSWORD = '@Arya123'
-# EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'arpit.arya.568@gmail.com'
+EMAIL_HOST_PASSWORD = 'rrpe wcwi erhq tqrk'
+EMAIL_PORT = 587 
+EMAIL_USE_TLS = True
+

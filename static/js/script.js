@@ -55,9 +55,12 @@ $(document).ready(function() {
 }); 
 // jquery end
 
-setTimeout(function() {
- $('#message').fadeout('slow')
-  }, 3000);
+$(document).ready(function () {
+    setTimeout(function () {
+        $('#message').fadeOut();
+    }, 2000);
+});
+
 
 function togglePassword(field) {
     const passwordField = document.querySelector(`#id_${field}`);

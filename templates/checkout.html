@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block checkout %}
+{% block main-content %}
 
 <section class="section-content padding-y bg">
   <div class="container">
@@ -11,16 +11,16 @@
         <div class="card">
           <div class="card-body">
             <h4 class="cart-title">Billing Address</h4>
-            <form action="" method="POST">
+            <form action="{% url "place_order" %}" method="POST">
               {% csrf_token %}
               <div class="form-row">
                 <div class="col form-group">
-                  <label for="first-name">First Name</label>
-                  <input type="text" name="first-name" class="form-control" id="first-name" placeholder="First Name" required>
+                  <label for="first_name">First Name</label>
+                  <input type="text" name="first_name" class="form-control" id="first-name" placeholder="First Name" required>
                 </div>
                 <div class="col form-group">
-                  <label for="last-name">Last Name</label>
-                  <input type="text" name="last-name" class="form-control" id="last-name" placeholder="Last Name" required>
+                  <label for="last_name">Last Name</label>
+                  <input type="text" name="last_name" class="form-control" id="last-_name" placeholder="Last Name" required>
                 </div>
               </div>
               
@@ -37,11 +37,11 @@
               
               <div class="form-row">
                 <div class="col form-group">
-                  <label for="address-line-1">Address Line 1</label>
+                  <label for="address_line_1">Address Line 1</label>
                   <input type="text" name="address_line_1" class="form-control" id="address-line-1" placeholder="Address Line 1" required>
                 </div>
                 <div class="col form-group">
-                  <label for="address-line-2">Address Line 2</label>
+                  <label for="address_line_2">Address Line 2</label>
                   <input type="text" name="address_line_2" class="form-control" id="address-line-2" placeholder="Address Line 2" required>
                 </div>
               </div>
@@ -62,7 +62,7 @@
               </div>
 
               <div class="form-group">
-                <label for="order-note">Order Note</label>
+                <label for="order_note">Order Note</label>
                 <textarea name="order_note" rows="2" class="form-control" id="order-note" placeholder="Order Note" required></textarea>
               </div>
             
@@ -80,7 +80,6 @@
                   <th scope="col">Product</th>
                   <th scope="col" width="120">Quantity</th>
                   <th scope="col" width="120">Price</th>
-
                 </tr>
               </thead>
               <tbody>
@@ -130,4 +129,4 @@
 </section>
 <!-- ========================= SECTION CONTENT END// ========================= -->
 
-{% endblock checkout %}
+{% endblock main-content %}

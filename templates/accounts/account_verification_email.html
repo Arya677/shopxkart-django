@@ -1,0 +1,16 @@
+{% autoescape off %}
+
+Hi {{ user.first_name }} {{ user.last_name }},
+Please click on the following link to confirm your registration:
+
+http://127.0.0.1:8000/{% url 'activate' uidb64=uid token=token %}
+ 
+If you think it's not you, please disregard this email.
+
+Best regards,
+
+{% endautoescape %}
+
+
+
+

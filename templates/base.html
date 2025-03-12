@@ -28,6 +28,9 @@
 
 <!-- custom javascript -->
 <script src="{% static "js/script.js" %}" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="https://www.paypal.com/sdk/js?client-id=AUYpeBwN0X1YfIAYrSGRZ7AiOibFV2wIKXhfUbHpPO59z6_oR_NELBQZpHzw_NIg15UHyJonfLoiLUMA&currency=USD"></script>
 
 <script type="text/javascript">
 /// some script
@@ -124,26 +127,6 @@ $(document).ready(function() {
 	</header>
 
 {% block main-content %}{% endblock main-content %}
-{% block register %}{% endblock register %}
-{% block signin %}{% endblock signin %}
-{% block store %}{% endblock store %} 
-{% block product-detail %}{% endblock product-detail %}
-{% block cart %}{% endblock cart %}
-{% block dashboard %}{% endblock dashboard %}
-{% block forgotPassword %}{% endblock forgotPassword %}
-{% block checkout %}{% endblock checkout %}
-
-{% comment %} 
-
-
-{% block order-complete %}{% endblock order-complete %}
-{% block place-order %}{% endblock place-order %}
-
-
-{% block search-result %}{% endblock search-result %}
-
-{% endcomment %}
-
 
 <!-- ========================= FOOTER ========================= -->
 <footer class="footer bg-dark text-white">
