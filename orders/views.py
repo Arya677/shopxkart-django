@@ -154,7 +154,7 @@ def order_complete(request):
         payment = Payment.objects.get(payment_id=transID)
         context = {
             'order': order,
-            'ordered_products': ordered_products,
+            'ordered_products': ordered_products, 
             'order_number': order.order_number,
             'transID': payment.payment_id,
             'payment' : payment,
